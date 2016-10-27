@@ -39,7 +39,6 @@ function getSaved(req, res, next) {
   return false;
 }
 
-
 // Delete
 function deleteSaved(req, res, next) {
   MongoClient.connect(dbConnection, (err, db) => {
@@ -49,7 +48,6 @@ function deleteSaved(req, res, next) {
       .findAndRemove({ _id: ObjectID(req.params.id) }, (removeErr, doc) => {
         if (removeErr) return next(removeErr);
 
-        // return the data
         res.removed = doc;
         db.close();
         return next();

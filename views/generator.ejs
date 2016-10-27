@@ -1,31 +1,37 @@
-<!DOCTYPE html>
+<!DOCTYPE= html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset'utf-8'>
+  <meta http-equiv'X-UA-Compatible' content'IE=edge'>
   <title>Movie and Recipe Generator</title>
-  <link rel="stylesheet" href="/css/normalize.css">
-  <!-- <link rel="stylesheet" href="/css/main.css"> -->
+  <link rel'stylesheet' href'/css/normalize.css'>
+  <!-- <link rel'stylesheet' href'/css/main.css'> -->
 </head>
 <body>
+<header>
+
+<a class='gNav' href='/'>HOME</a>
+<a class='gNav' href='/saved'>SAVED</a>
+
+</header>
+
 <h1>Movie and Recipe Generator</h1>
 
-<a href="/saved">SAVED</a>
 
-<form action="/saved" method="post" accept-charset="utf-8">
+<form action='/saved' method='post' accept-charset='utf-8'>
 
   <div class='gMovies'>
   <% for(let i = 0; i< 3; i++) { %>
     <div class='flexboxMovies'>
-      <img src="<%= movies[i].poster %>" onerror="this.src='images/noposter.jpg'">
+      <img src='<%= movies[i].poster %>' onerror="this.src='images/noposter.jpg'">
       <div class='movieContainer'>
         <h4><%= movies[i].show_title %></h4>
         <div><%= movies[i].category %></div>
         <div><%= movies[i].summary %></div>
       </div>
-        <input type="hidden" name="saved[MoviePoster]" value="<%= movies[i].poster %>">
-        <input type="hidden" name="saved[MovieTitle]" value="<%= movies[i].show_title %>">
-        <input type="radio" name="movie">Add<br>
+        <input type='hidden' name='saved[MoviePoster]' value='<%= movies[i].poster %>'>
+        <input type='hidden' name='saved[MovieTitle]' value='<%= movies[i].show_title %>'>
+        <input type='radio' name='movie' id='radio[i]'>Add<br>
     </div>
   <% }; %>
   </div>
@@ -33,16 +39,16 @@
   <div class= 'gRecipes'>
   <% for(let i = 0; i< 3; i++) { %>
     <div class='flexboxRecipes'>
-      <div><a href="<%= recipe[i].href %>"><%= recipe[i].title %></a></div>
+      <div><a href'<%= recipe[i].href %>'><%= recipe[i].title %></a></div>
       <div><%= recipe[i].ingredients %></div>
-      <input type="hidden" name="saved[RecipeTitle]" value="<%= recipe[i].title %>">
-      <input type="hidden" name="saved[RecipeLink]" value="<%= recipe[i].href %>">
-      <input type="radio" name="recipe">Add<br>
+      <input type='hidden' name='saved[RecipeTitle]' value='<%= recipe[i].title %>'>
+      <input type='hidden' name='saved[RecipeLink]' value='<%= recipe[i].href %>'>
+      <input type='radio' name='recipe' id='radio[i]'>Add<br>
   </div>
   <% }; %>
   </div>
 
-  <input type="submit" value="Save">
+  <input type='submit' value='Save'>
 </form>
 
 </body>
