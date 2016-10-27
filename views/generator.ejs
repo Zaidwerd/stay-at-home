@@ -5,25 +5,45 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Movie and Recipe Generator</title>
   <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/styles.css">
+  <!-- <link rel="stylesheet" href="/css/main.css"> -->
 </head>
 <body>
 <h1>Movie and Recipe Generator</h1>
-<div class='movies'>
-<% for(let i = 0; i< movies.length; i++) { %>
-  <img src="<%= movies[i].poster %>" onerror="this.src='images/noposter.jpg'">
-  <div><%= movies[i].show_title %></div>
-  <div><%= movies[i].category %></div>
-<% } %>
-</div>
 
-<div class= 'recipes'>
-<% for(let i = 0; i< recipe.length; i++) { %>
-  <img src="<%= recipe[i].thumbnail %>">
-  <div><a href="<%= recipe[i].href %>"><%= recipe[i].title %></a></div>
-  <div><%= recipe[i].ingredients %></div>
-<% } %>
-</div>
+<a href="/saved">SAVED</a>
+
+<form action="/saved" method="post" accept-charset="utf-8">
+
+  <div class='gMovies'>
+  <% for(let i = 0; i< 3; i++) { %>
+    <div class='flexboxMovies'>
+      <img src="<%= movies[i].poster %>" onerror="this.src='images/noposter.jpg'">
+      <div class='movieContainer'>
+        <h4><%= movies[i].show_title %></h4>
+        <div><%= movies[i].category %></div>
+        <div><%= movies[i].summary %></div>
+      </div>
+        <input type="hidden" name="saved[MoviePoster]" value="<%= movies[i].poster %>">
+        <input type="hidden" name="saved[MovieTitle]" value="<%= movies[i].show_title %>">
+        <input type="radio" name="movie">Add<br>
+    </div>
+  <% }; %>
+  </div>
+
+  <div class= 'gRecipes'>
+  <% for(let i = 0; i< 3; i++) { %>
+    <div class='flexboxRecipes'>
+      <div><a href="<%= recipe[i].href %>"><%= recipe[i].title %></a></div>
+      <div><%= recipe[i].ingredients %></div>
+      <input type="hidden" name="saved[RecipeTitle]" value="<%= recipe[i].title %>">
+      <input type="hidden" name="saved[RecipeLink]" value="<%= recipe[i].href %>">
+      <input type="radio" name="recipe">Add<br>
+  </div>
+  <% }; %>
+  </div>
+
+  <input type="submit" value="Save">
+</form>
 
 </body>
 </html>

@@ -1,0 +1,42 @@
+/*generator.ejs*/
+body{
+  height: auto;
+  width:;
+}
+
+/*movie selection*/
+
+.gMovies{
+  height: 50%;
+  width: 90%;
+
+  /*flexbox*/
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.flexboxMovies{
+  height: 8em;
+  width: 8em;
+
+}
+
+/*recipe selections*/
+
+.gRecipes{
+  height: 40%;
+  width: 90%;
+
+  /*flexbox*/
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.flexboxRecipe{
+  height: 6em;
+  width: 8em;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  background: #000000;
+}
