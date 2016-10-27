@@ -9,6 +9,22 @@
 </head>
 <body>
 <h1>Movie and Recipe Generator</h1>
+<div class='movies'>
+<% for(let i = 0; i< movies.length; i++) { %>
+  <img src="<%= movies[i].poster %>" onerror="this.src='images/noposter.jpg'">
+  <div><%= movies[i].show_title %></div>
+  <div><%= movies[i].category %></div>
+<% } %>
+</div>
+
+<div class= 'recipes'>
+<% for(let i = 0; i< recipe.length; i++) { %>
+  <img src="<%= recipe[i].thumbnail %>">
+  <div><a href="<%= recipe[i].href %>"><%= recipe[i].title %></a></div>
+  <div><%= recipe[i].ingredients %></div>
+<% } %>
+</div>
+
 </body>
 </html>
 
