@@ -27,20 +27,14 @@ img{
   width: 20em;
   margin: 2em;
   padding: 1em;
-}
-
-.flexboxMovies{
-  height: 8em;
-  width: 8em;
-
+  display: flex;
 }
 
 .movieContainer{
   height: 100px;
-  width: 200px;
+  width: 300px;
   overflow-y: scroll;
 }
-/*recipe selections*/
 
 .flexboxItem2{
   height: 15em;
@@ -51,4 +45,5 @@ img{
   background-color: #000000;
   color: #ffffff;
   bottom: 20%;
+  display: flex;
 }
