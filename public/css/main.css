@@ -3,13 +3,14 @@ body{
   height: auto;
   width: 100%;
   text-align: center;
+  background-color: #00695C;
 }
 
 /*movie selection*/
 
 
 img{
-  height:300px;
+  height:250px;
   width:200px;
 }
 
@@ -31,7 +32,7 @@ img{
 }
 
 .movieContainer{
-  height: 100px;
+  height: 250px;
   width: 300px;
   overflow-y: scroll;
 }
@@ -41,7 +42,6 @@ img{
   width: 15em;
   border-radius: 50%;
   text-align: center;
-  overflow: hidden;
   background-color: #000000;
   color: #ffffff;
   bottom: 20%;

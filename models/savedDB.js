@@ -1,14 +1,24 @@
-const { MongoClient, ObjectID } = require('mongodb');
+const { ObjectID } = require('mongodb');
+const { getDB } = require('../lib/dbConnect.js');
 
-const dbConnection = 'mongodb://localhost:27017/stay-at-home';
+// const dbConnection = 'mongodb://localhost:27017/stay-at-home';
 
 // ADD
 function addSaved(req, res, next) {
-  MongoClient.connect(dbConnection, (err, db) => {
-    if (err) return next(err);
+  // creating an empty object for the insertObj
+  const insertObj = {};
 
+  // copying all of req.body into insertObj
+  for(key in req.body) {
+    insertObj[key] = req.body[key];
+  }
+
+  // Adding userId to insertObj
+  insertObj.favorite.userId = req.session.userId;
+
+  getDB().then((db) => {
     db.collection('saved')
-      .insert(req.body.saved, (insertErr, result) => {
+      .insert(insertObj.saved, (insertErr, result) => {
         if (insertErr) return next(insertErr);
 
         res.add = result;
@@ -22,11 +32,9 @@ function addSaved(req, res, next) {
 
 // Grab
 function getSaved(req, res, next) {
-  MongoClient.connect(dbConnection, (err, db) => {
-    if (err) return next(err);
-
+  getDB().then((db) => {
     db.collection('saved')
-      .find({})
+      .find({ userId: { $eq: req.session.userId } })
       .toArray((arrayError, data) => {
         if (arrayError) return next(arrayError);
 
@@ -41,9 +49,7 @@ function getSaved(req, res, next) {
 
 // Delete
 function deleteSaved(req, res, next) {
-  MongoClient.connect(dbConnection, (err, db) => {
-    if (err) return next(err);
-
+  getDB().then((db) => {
     db.collection('saved')
       .findAndRemove({ _id: ObjectID(req.params.id) }, (removeErr, doc) => {
         if (removeErr) return next(removeErr);
