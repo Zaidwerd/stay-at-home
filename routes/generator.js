@@ -5,8 +5,8 @@ const dbService = require('../models/savedDB');
 
 router.get('/', searchMovies, searchRecipe, (req, res) => {
   res.render('generator', {
-    movies: res.movies,
-    recipe: res.recipes.results,
+    movies: res.movies || [],
+    recipe: res.recipes.results || [],
   });
 });
 

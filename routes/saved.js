@@ -3,7 +3,7 @@ const dbService = require('../models/savedDB');
 
 router.get('/', dbService.getSaved, (req, res) => {
   res.render('saved', {
-    favorites: res.saved,
+    favorites: res.saved || [],
   });
 });
 

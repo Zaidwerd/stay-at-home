@@ -28,7 +28,7 @@
 
 <div class='flexboxContainer'>
 
-  <% for(let i = 0; i< 3; i++) { %>
+  <% for(let i = 0; i< movies.length; i++) { %>
     <div class='flexboxItem'>
       <img src='<%= movies[i].poster %>' onerror="this.src='images/noposter.jpg'">
       <div class='movieContainer'>
@@ -44,7 +44,7 @@
 
 <br><br>
 
-  <% for(let i = 0; i< 3; i++) { %>
+  <% for(let i = 0; i< recipe.length; i++) { %>
     <div class='flexboxItem2'>
       <h3><a href'<%= recipe[i].href %>'><%= recipe[i].title %></a></h3>
       <p><%= recipe[i].ingredients %></p>
