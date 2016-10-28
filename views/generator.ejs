@@ -1,11 +1,11 @@
 <!DOCTYPE= html>
 <html>
 <head>
-  <meta charset'utf-8'>
-  <meta http-equiv'X-UA-Compatible' content'IE=edge'>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <title>Movie and Recipe Generator</title>
-  <link rel'stylesheet' href'/css/normalize.css'>
-  <!-- <link rel'stylesheet' href'/css/main.css'> -->
+  <link rel='stylesheet' href='/css/normalize.css'>
+  <link rel='stylesheet' href='/css/main.css'>
 </head>
 <body>
 <header>
@@ -17,12 +17,19 @@
 
 <h1>Movie and Recipe Generator</h1>
 
+<h1>Welcome</h1>
+<form action="/generator" method="get" accept-charset="utf-8">
+ <input type="text" name="show_cast" placeholder="Enter a actor">
+ <input type="text" name="ingredients" placeholder="Enter ingredients">
+    <input type="submit" value="Search">
+</form>
 
 <form action='/saved' method='post' accept-charset='utf-8'>
 
-  <div class='gMovies'>
+<div class='flexboxContainer'>
+
   <% for(let i = 0; i< 3; i++) { %>
-    <div class='flexboxMovies'>
+    <div class='flexboxItem'>
       <img src='<%= movies[i].poster %>' onerror="this.src='images/noposter.jpg'">
       <div class='movieContainer'>
         <h4><%= movies[i].show_title %></h4>
@@ -34,20 +41,22 @@
         <input type='radio' name='movie' id='radio[i]'>Add<br>
     </div>
   <% }; %>
-  </div>
 
-  <div class= 'gRecipes'>
+<br><br>
+
   <% for(let i = 0; i< 3; i++) { %>
-    <div class='flexboxRecipes'>
-      <div><a href'<%= recipe[i].href %>'><%= recipe[i].title %></a></div>
-      <div><%= recipe[i].ingredients %></div>
+    <div class='flexboxItem2'>
+      <h3><a href'<%= recipe[i].href %>'><%= recipe[i].title %></a></h3>
+      <p><%= recipe[i].ingredients %></p>
       <input type='hidden' name='saved[RecipeTitle]' value='<%= recipe[i].title %>'>
       <input type='hidden' name='saved[RecipeLink]' value='<%= recipe[i].href %>'>
       <input type='radio' name='recipe' id='radio[i]'>Add<br>
   </div>
   <% }; %>
-  </div>
 
+</div>
+
+  <input type="text" name="saved[Name]" placeholder="enter combo nickname"><br>
   <input type='submit' value='Save'>
 </form>
 

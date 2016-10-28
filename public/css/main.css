@@ -1,18 +1,32 @@
 /*generator.ejs*/
 body{
   height: auto;
-  width:;
+  width: 100%;
+  text-align: center;
 }
 
 /*movie selection*/
 
-.gMovies{
-  height: 50%;
-  width: 90%;
 
-  /*flexbox*/
+img{
+  height:300px;
+  width:200px;
+}
+
+.flexboxContainer{
+  height: auto;
+  width: 100%;
   display: flex;
   flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.flexboxItem{
+  height: 20em;
+  width: 20em;
+  margin: 2em;
+  padding: 1em;
 }
 
 .flexboxMovies{
@@ -21,22 +35,20 @@ body{
 
 }
 
+.movieContainer{
+  height: 100px;
+  width: 200px;
+  overflow-y: scroll;
+}
 /*recipe selections*/
 
-.gRecipes{
-  height: 40%;
-  width: 90%;
-
-  /*flexbox*/
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.flexboxRecipe{
-  height: 6em;
-  width: 8em;
+.flexboxItem2{
+  height: 15em;
+  width: 15em;
   border-radius: 50%;
   text-align: center;
   overflow: hidden;
-  background: #000000;
+  background-color: #000000;
+  color: #ffffff;
+  bottom: 20%;
 }

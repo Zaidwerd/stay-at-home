@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <title>Saved Favorites</title>
-  <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/main.css">
+  <link rel='stylesheet' href='/css/normalize.css'>
+  <link rel='stylesheet' href='/css/main.css'>
 </head>
 <body>
 <h1>Saved Favorites</h1>
 <div class='saved'>
   <% for( let i = 0; i < favorites.length; i++){%>
-    <div class="savedData">
-      <img class="poster" src="<%= favorites[i].MoviePoster %>">
+    <div class='savedData'>
+      <h2><%= favorites[i].Name %></h2>
+      <img class='poster' src='<%= favorites[i].MoviePoster %>'>
       <h4><%= favorites[i].MovieTitle %></h4>
       <br>
-      <div><a href="<%= favorites[i].RecipeLink %>"><%= favorites[i].RecipeTitle %></a></div>
-      <form class="delete-favorite" action="/saved/<%= favorites[i]._id %>?_method=DELETE" method="post">
-      <input type="submit" value="Delete">
+      <div><a href='<%= favorites[i].RecipeLink %>'><%= favorites[i].RecipeTitle %></a></div>
+      <form class='delete-favorite' action='saved/<%= favorites[i]._id %>?_method=DELETE' method='post'>
+      <input type='submit' name='name' value='Delete'>
       </form>
     </div>
   <% }; %>
