@@ -55,7 +55,7 @@
       <p><%= recipe[i].ingredients %></p>
       <input type='hidden' name='saved[RecipeTitle]' value='<%= recipe[i].title %>'>
       <input type='hidden' name='saved[RecipeLink]' value='<%= recipe[i].href %>'>
-      <input type='radio' name='<%= recipe[i].title %>' value="<%= i %>-recipe">Add<br>
+      <input type='radio' name='<%= recipe[i].href %>' value="<%= i %>-recipe">Add<br>
   </div>
   <% }; %>
 </fieldset>

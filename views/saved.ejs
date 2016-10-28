@@ -8,7 +8,7 @@
   <link rel='stylesheet' href='/css/main.css'>
 </head>
 <body>
-  <h1>Welcome! <%= user.username %></h1>
+  <h1>Welcome <%= user.firstName %>!</h1>
     <a href="/generator">SEARCH</a>
     <form action="/auth?_method=DELETE" method="post">
       <input type="submit" value="Logout">
@@ -18,10 +18,9 @@
   <% for( let i = 0; i < favorites.length; i++){%>
     <div class='savedData'>
       <h2><%= favorites[i].Name %></h2>
-      <img class='poster' src='<%= favorites[i].MoviePoster %>'>
-      <h4><%= favorites[i].MovieTitle %></h4>
+      <h4><%= favorites[i].movie %></h4>
+      <h4><a href='<%= favorites[i].recipe %>'><%= favorites[i].recipe %></a></h4>
       <br>
-      <div><a href='<%= favorites[i].RecipeLink %>'><%= favorites[i].RecipeTitle %></a></div>
       <form class='delete-favorite' action='saved/<%= favorites[i]._id %>?_method=DELETE' method='post'>
       <input type='submit' name='name' value='Delete'>
       </form>

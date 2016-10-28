@@ -14,8 +14,8 @@ function addSaved(req, res, next) {
   for(key in req.body) {
     insertObj[key] = req.body[key];
     console.log('key: ', req.body[key]);
-    if(typeof(req.body[key]) === 'string' && req.body[key].includes('movie')) movie = key;
-    if(typeof(req.body[key]) === 'string' && req.body[key].includes('recipe')) recipe = key;
+    if (typeof(req.body[key]) === 'string' && req.body[key].includes('movie')) movie = key;
+    if (typeof(req.body[key]) === 'string' && req.body[key].includes('recipe')) recipe = key;
   }
   insertObj.saved.movie = movie;
   insertObj.saved.recipe = recipe;
@@ -64,6 +64,24 @@ function deleteSaved(req, res, next) {
 
         res.removed = doc;
         db.close();
+        next();
+      });
+    return false;
+  });
+  return false;
+}
+
+// Edit
+function editSaved(req, res, next) {
+  getDB().then((db) => {
+    db.collection('saved')
+      .findAndModify({ _id: ObjectID(req.params.id) }, [] /* sort */,
+      { $set: req.body.movie }, { new: true } /* options */, (updateError, doc) => {
+        if (updateError) return next(updateError);
+
+        // return the data
+        res.edit = doc;
+        db.close();
         return next();
       });
     return false;
@@ -71,8 +89,10 @@ function deleteSaved(req, res, next) {
   return false;
 }
 
+
 module.exports = {
   deleteSaved,
   getSaved,
   addSaved,
+  editSaved,
 };
