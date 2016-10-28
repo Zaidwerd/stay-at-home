@@ -8,7 +8,12 @@
   <link rel='stylesheet' href='/css/main.css'>
 </head>
 <body>
-<h1>Saved Favorites</h1>
+  <h1>Welcome! <%= user.username %></h1>
+    <a href="/generator">SEARCH</a>
+    <form action="/auth?_method=DELETE" method="post">
+      <input type="submit" value="Logout">
+    </form>
+
 <div class='saved'>
   <% for( let i = 0; i < favorites.length; i++){%>
     <div class='savedData'>

@@ -24,11 +24,13 @@
     <input type="submit" value="Search">
 </form>
 
-<form action='/saved' method='post' accept-charset='utf-8'>
+<form action='/saved' method='post'>
 
 <div class='flexboxContainer'>
 
-  <% for(let i = 0; i< movies.length; i++) { %>
+  <fieldset id='group1'>
+  <% for(let i = 0; i < 3 && i < movies.length; i++) { %>
+
     <div class='flexboxItem'>
       <img src='<%= movies[i].poster %>' onerror="this.src='images/noposter.jpg'">
       <div class='movieContainer'>
@@ -38,22 +40,25 @@
       </div>
         <input type='hidden' name='saved[MoviePoster]' value='<%= movies[i].poster %>'>
         <input type='hidden' name='saved[MovieTitle]' value='<%= movies[i].show_title %>'>
-        <input type='radio' name='movie' id='radio[i]'>Add<br>
+        <input type='radio' name='<%= movies[i].show_title %>' value="<%= i %>-movie">Add<br>
     </div>
+
   <% }; %>
+  </fieldset>
 
 <br><br>
+<fieldset id='group2'>
 
-  <% for(let i = 0; i< recipe.length; i++) { %>
+  <% for(let i = 0; i< 3 && i < recipe.length; i++) { %>
     <div class='flexboxItem2'>
       <h3><a href'<%= recipe[i].href %>'><%= recipe[i].title %></a></h3>
       <p><%= recipe[i].ingredients %></p>
       <input type='hidden' name='saved[RecipeTitle]' value='<%= recipe[i].title %>'>
       <input type='hidden' name='saved[RecipeLink]' value='<%= recipe[i].href %>'>
-      <input type='radio' name='recipe' id='radio[i]'>Add<br>
+      <input type='radio' name='<%= recipe[i].title %>' value="<%= i %>-recipe">Add<br>
   </div>
   <% }; %>
-
+</fieldset>
 </div>
 
   <input type="text" name="saved[Name]" placeholder="enter combo nickname"><br>

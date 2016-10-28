@@ -7,15 +7,23 @@ const { getDB } = require('../lib/dbConnect.js');
 function addSaved(req, res, next) {
   // creating an empty object for the insertObj
   const insertObj = {};
-
+  // console.log('On save body: ',req.body);
+  let movie;
+  let recipe;
   // copying all of req.body into insertObj
   for(key in req.body) {
     insertObj[key] = req.body[key];
+    console.log('key: ', req.body[key]);
+    if(typeof(req.body[key]) === 'string' && req.body[key].includes('movie')) movie = key;
+    if(typeof(req.body[key]) === 'string' && req.body[key].includes('recipe')) recipe = key;
   }
+  insertObj.saved.movie = movie;
+  insertObj.saved.recipe = recipe;
 
   // Adding userId to insertObj
-  insertObj.favorite.userId = req.session.userId;
+  insertObj.saved.userId = req.session.userId;
 
+  console.log(insertObj.saved);
   getDB().then((db) => {
     db.collection('saved')
       .insert(insertObj.saved, (insertErr, result) => {

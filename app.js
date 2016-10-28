@@ -16,6 +16,8 @@ const cookieParser    = require('cookie-parser');
 const homeRoute       = require('./routes/index');
 const generatorRoute  = require('./routes/generator');
 const savedRoute      = require('./routes/saved');
+const authRoute       = require('./routes/auth');
+const usersRoute      = require('./routes/users');
 
 const app             = express();
 const port            = process.argv[2] || process.env.PORT || 3000;
@@ -40,5 +42,7 @@ app.use(session({
 app.use('/', homeRoute);
 app.use('/generator', generatorRoute);
 app.use('/saved', savedRoute);
+app.use('/users', usersRoute);
+app.use('/auth', authRoute);
 
 app.listen(port, () => console.log('listening on port ', port));
