@@ -1,17 +1,19 @@
 const router = require('express').Router();
-const dbService = require('../models/savedDB');
+const { authenticate } = require('../lib/auth');
+const { getSaved, addSaved, deleteSaved } = require('../models/savedDB');
 
-router.get('/', dbService.getSaved, (req, res) => {
+router.get('/', authenticate, getSaved, (req, res) => {
   res.render('saved', {
+    user: res.user,
     favorites: res.saved || [],
   });
 });
 
-router.post('/', dbService.addSaved, (req, res) => {
+router.post('/', authenticate, addSaved, (req, res) => {
   res.redirect('saved');
 });
 
-router.delete('/saved/:id', dbService.deleteSaved, (req, res) => {
+router.delete('/saved/:id', deleteSaved, (req, res) => {
   res.redirect('saved');
 });
 
