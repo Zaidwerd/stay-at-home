@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { authenticate } = require('../lib/auth');
-const { getSaved, addSaved, deleteSaved } = require('../models/savedDB');
+const { getSaved, addSaved, deleteSaved, } = require('../models/savedDB');
 
 router.get('/', authenticate, getSaved, (req, res) => {
   res.render('saved', {

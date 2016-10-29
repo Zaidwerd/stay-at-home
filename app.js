@@ -18,6 +18,7 @@ const generatorRoute  = require('./routes/generator');
 const savedRoute      = require('./routes/saved');
 const authRoute       = require('./routes/auth');
 const usersRoute      = require('./routes/users');
+const editRoute       = require('./routes/edit');
 
 const app             = express();
 const port            = process.argv[2] || process.env.PORT || 3000;
@@ -44,5 +45,6 @@ app.use('/generator', generatorRoute);
 app.use('/saved', savedRoute);
 app.use('/users', usersRoute);
 app.use('/auth', authRoute);
+app.use('/edit', editRoute);
 
 app.listen(port, () => console.log('listening on port ', port));

@@ -88,10 +88,27 @@ function editSaved(req, res, next) {
   return false;
 }
 
+function getEdit(req, res, next) {
+  getDB().then((db) => {
+    db.collection('saved')
+      .findOne({ _id: ObjectID(req.params.id) }, (findErr, obj) => {
+        if (findErr) return next(findErr);
+
+        // return the data
+        res.obj = obj;
+        db.close();
+        return next();
+      });
+    return false;
+  });
+  return false;
+}
+
 
 module.exports = {
   getSaved,
   addSaved,
   editSaved,
   deleteSaved,
+  getEdit,
 };
