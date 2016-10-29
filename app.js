@@ -5,7 +5,7 @@ const logger          = require('morgan');
 const path            = require('path');
 const bodyParser      = require('body-parser');
 const methodOverride  = require('method-override');
-const dotEnv          = require('dotenv').config({silent: true});
+const dotEnv          = require('dotenv').config({ silent: true });
 const session         = require('express-session');
 const cookieParser    = require('cookie-parser');
 

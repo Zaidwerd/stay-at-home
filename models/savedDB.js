@@ -59,10 +59,9 @@ function getSaved(req, res, next) {
 function deleteSaved(req, res, next) {
   getDB().then((db) => {
     db.collection('saved')
-      .findAndRemove({ _id: ObjectID(req.params.id) }, (removeErr, doc) => {
+      .findAndRemove({ _id: ObjectID(req.params.id) }, (removeErr, result) => {
         if (removeErr) return next(removeErr);
-
-        res.removed = doc;
+        res.removed = result;
         db.close();
         next();
       });
@@ -91,8 +90,8 @@ function editSaved(req, res, next) {
 
 
 module.exports = {
-  deleteSaved,
   getSaved,
   addSaved,
   editSaved,
+  deleteSaved,
 };
