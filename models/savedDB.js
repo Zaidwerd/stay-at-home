@@ -75,7 +75,7 @@ function editSaved(req, res, next) {
   getDB().then((db) => {
     db.collection('saved')
       .findAndModify({ _id: ObjectID(req.params.id) }, [] /* sort */,
-      { $set: req.body.movie }, { new: true } /* options */, (updateError, doc) => {
+      { $set: req.body.obj }, { new: true } /* options */, (updateError, doc) => {
         if (updateError) return next(updateError);
 
         // return the data

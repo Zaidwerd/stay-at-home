@@ -8,7 +8,7 @@
       <h2><%= obj.movie %></h2>
       <h3><a href='<%= obj.recipe %>'><%= obj.recipe %></a></h3>
       <br>
-    <form class="edit" action="/<%= obj._id %>?_method=PUT" method="POST">
+    <form class="edit" action="/saved/<%= obj._id %>?_method=PUT" method="POST">
       <input type="text" name="obj[Name]" value="<%= obj.Name %>">
       <input type="submit" value="Update">
     </form>
