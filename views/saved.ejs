@@ -7,21 +7,21 @@
   <link rel='stylesheet' href='/css/normalize.css'>
   <link rel='stylesheet' href='/css/main.css'>
 </head>
-<body>
-  <h1>Welcome <%= user.firstName %>!</h1>
-    <a href="/generator">SEARCH</a>
-    <form action="/auth?_method=DELETE" method="post">
+<body class="savedBody">
+  <h1 class="savedWelcome">Welcome <%= user.firstName %>!</h1>
+    <a class="savedSearch" href="/generator">SEARCH</a>
+    <form class="savedLogout" action="/auth?_method=DELETE" method="post">
       <input type="submit" value="Logout">
     </form>
 
-<div class='saved'>
+<div class="savedContainer">
   <% favorites.forEach((a) => {%>
-    <div class='savedData'>
-      <h2><%= a.Name %></h2>
-      <h4><%= a.movie %></h4>
-      <h4><a href='<%= a.recipe %>'><%= a.recipe %></a></h4>
+    <div class="savedItem">
+      <h2 class="savedData"<%= a.Name %></h2>
+      <h4 class="savedData"><%= a.movie %></h4>
+      <h4 class="savedData"><a class="savedrecipe" href='<%= a.recipe %>'><%= a.recipe %></a></h4>
       <br>
-      <a href="/saved/edit/<%= a._id %>">Edit</a>
+      <a class="savedEdit" href="/saved/edit/<%= a._id %>">Edit</a>
       <form action='/saved/<%= a._id %>?_method=DELETE' method='POST'>
       <input type='submit' value='Delete'>
       </form>

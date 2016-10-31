@@ -5,16 +5,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Main Page</title>
   <link rel="stylesheet" href="/css/normalize.css">
+  <link href="https://fonts.googleapis.com/css?family=Trirong|Yellowtail" rel="stylesheet">
   <link rel="stylesheet" href="/css/main.css">
  </head>
-  <body>
-    <h1>Sign up</h1>
-    <form class="" action="/users" method="post">
-        <input type="text" name="user[firstName]" value="" placeholder="First Name">
-        <input type="text" name="user[lastName]" value="" placeholder="Last Name">
-        <input type="text" name="user[username]" value="" placeholder="Username">
-        <input type="password" name="user[password]" value="" placeholder="Password">
+  <body class="signupBody">
+    <a class="signupLink" href="/"><h1 class="signupLogo">Stay-at-Home</h1></a>
+    <div class= "signupContainer">
+      <h3 class="signupItem">Sign-up</h3>
+      <form class="signupItem" action="/users" method="post">
+        <input type="text" name="user[firstName]" value="" placeholder="First Name"><br>
+        <input type="text" name="user[lastName]" value="" placeholder="Last Name"><br>
+        <input type="text" name="user[username]" value="" placeholder="Username"><br>
+        <input type="password" name="user[password]" value="" placeholder="Password"><br>
         <input type="submit" value="Sign up">
-    </form>
+     </form>
+    </div>
   </body>
 </html>

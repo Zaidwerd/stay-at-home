@@ -5,15 +5,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Main Page</title>
   <link rel="stylesheet" href="/css/normalize.css">
+  <link href="https://fonts.googleapis.com/css?family=Trirong|Yellowtail" rel="stylesheet">
   <link rel="stylesheet" href="/css/main.css">
 </head>
-<body>
-<h1>Login</h1>
-<form class="" action="/auth" method="post">
-        <input type="text" name="user[username]" value="" placeholder="Username">
-        <input type="password" name="user[password]" value="" placeholder="Password">
-        <input type="submit" name="name" value="Log in">
-    </form>
+<body class="loginBody">
+<a class="loginLink" href="/"><h1 class="loginLogo">Stay-at-Home</h1></a>
+
+<div class="loginContainer">
+  <h3 class="loginItem">Login</h3>
+  <form class="loginItem" action="/auth" method="post">
+    <input type="text" name="user[username]" value="" placeholder="Username"><br>
+    <input type="password" name="user[password]" value="" placeholder="Password"><br>
+    <input type="submit" name="name" value="Log in">
+  </form>
+</div>
 
 </body>
 </html>
