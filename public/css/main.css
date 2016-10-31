@@ -128,7 +128,7 @@
 }
 
 .savedBackground{
-  height: 100%;
+  height: auto;
   width: 80%;
   margin: auto;
   background-color: white;
@@ -273,6 +273,10 @@
 }
 
 .gnavSaved:hover{
+  color: #f5f5f5;
+}
+
+.gInstructions{
   color: #f5f5f5;
 }
 
