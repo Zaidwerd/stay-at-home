@@ -5,6 +5,7 @@
   height: auto;
   width: 100%;
   background-color: black;
+  text-align: center;
 }
 
 .indexLogo{
@@ -199,52 +200,58 @@
 
 /*GENERATOR.EJS*/
 
-
-body{
+.gBody{
   height: auto;
   width: 100%;
+  background-color: black;
   text-align: center;
-  background-color: #00695C;
 }
 
-/*movie selection*/
+.gLogo{
+  font-family: 'Yellowtail', cursive;
+  color: #ffc107;
+  font-size: 5em;
+}
+
+.gLogo:hover{
+  color: #f5f5f5;
+}
+
+.gnav{
+  text-decoration: none;
+}
 
 
 img{
-  height:250px;
-  width:200px;
+  height:50vh;
+  width:23vw;
 }
 
-.flexboxContainer{
-  height: auto;
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: space-around;
+.gContainer{
 }
 
-.flexboxItem{
-  height: 20em;
-  width: 20em;
-  margin: 2em;
-  padding: 1em;
-  display: flex;
+
+
+.gMovieItem{
+  height: 80vh;
+  width: 30vw;
+  background-color: #ffffff;
+  display: inline-block;
 }
 
-.movieContainer{
-  height: 250px;
-  width: 300px;
+.gMovieData{
+  height:20vh;
+  width: 30vw;
   overflow-y: scroll;
 }
 
-.flexboxItem2{
-  height: 15em;
-  width: 15em;
+.gRecipeItem{
+  height: 60vh;
+  width: 60vh;
+  background-color: #ffffff;
   border-radius: 50%;
-  text-align: center;
-  background-color: #000000;
-  color: #ffffff;
-  bottom: 20%;
-  display: flex;
+  display: table-cell;
+  vertical-align:middle;
 }
+
+
