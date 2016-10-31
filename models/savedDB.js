@@ -3,7 +3,7 @@ const { getDB } = require('../lib/dbConnect.js');
 
 // const dbConnection = 'mongodb://localhost:27017/stay-at-home';
 
-// ADD
+// ADD Movie Choice and Recipe Choice to database
 function addSaved(req, res, next) {
   const insertObj = {};
   // console.log('On save body: ',req.body);
@@ -14,7 +14,7 @@ function addSaved(req, res, next) {
 
   for(key in req.body) {
     insertObj[key] = req.body[key];
-    console.log('key: ', req.body[key]);
+    // console.log('key: ', req.body[key]);
     if (typeof(req.body[key]) === 'string' && req.body[key].includes('movie')) movie = key;
     if (typeof(req.body[key]) === 'string' && req.body[key].includes('recipe')) recipe = key;
   }
@@ -25,8 +25,10 @@ function addSaved(req, res, next) {
   // Adding userId to insertObj
   insertObj.saved.userId = req.session.userId;
 
-  console.log(insertObj.saved);
+  // console.log(insertObj.saved);
+
   getDB().then((db) => {
+  // Define database collection
     db.collection('saved')
       .insert(insertObj.saved, (insertErr, result) => {
         if (insertErr) return next(insertErr);
@@ -40,10 +42,12 @@ function addSaved(req, res, next) {
   return false;
 }
 
-// Grab
+// Grab saved data from database to render onto page
 function getSaved(req, res, next) {
   getDB().then((db) => {
+  // Define database collection
     db.collection('saved')
+    // find data connected to userID
       .find({ userId: { $eq: req.session.userId } })
       .toArray((arrayError, data) => {
         if (arrayError) return next(arrayError);
@@ -57,12 +61,15 @@ function getSaved(req, res, next) {
   return false;
 }
 
-// Delete
+// Delete saved data from database
 function deleteSaved(req, res, next) {
   getDB().then((db) => {
+  // Define database collection
     db.collection('saved')
+    // Find data connectioned to userID and drop from collection
       .findAndRemove({ _id: ObjectID(req.params.id) }, (removeErr, result) => {
         if (removeErr) return next(removeErr);
+
         res.removed = result;
         db.close();
         next();
@@ -72,28 +79,13 @@ function deleteSaved(req, res, next) {
   return false;
 }
 
-// Save Edit
-function editSaved(req, res, next) {
-  getDB().then((db) => {
-    db.collection('saved')
-      .findAndModify({ _id: ObjectID(req.params.id) }, [] /* sort */,
-      { $set: req.body.obj }, { new: true } /* options */, (updateError, doc) => {
-        if (updateError) return next(updateError);
 
-        // return the data
-        res.edit = doc;
-        db.close();
-        return next();
-      });
-    return false;
-  });
-  return false;
-}
-
-// Grab Edit
+// Grab saved data from database to render on to edit page
 function getEdit(req, res, next) {
   getDB().then((db) => {
+    // Define database collection
     db.collection('saved')
+    // Grab object from collection by id
       .findOne({ _id: ObjectID(req.params.id) }, (findErr, obj) => {
         if (findErr) return next(findErr);
 
@@ -107,6 +99,25 @@ function getEdit(req, res, next) {
   return false;
 }
 
+// Save Edit
+function editSaved(req, res, next) {
+  getDB().then((db) => {
+    // Define database collection
+    db.collection('saved')
+    // Find object by id and and save changes
+      .findAndModify({ _id: ObjectID(req.params.id) }, [] /* sort */,
+      { $set: req.body.obj }, { new: true } /* options */, (updateError, doc) => {
+        if (updateError) return next(updateError);
+
+        // return the data
+        res.edit = doc;
+        db.close();
+        return next();
+      });
+    return false;
+  });
+  return false;
+}
 
 module.exports = {
   getSaved,

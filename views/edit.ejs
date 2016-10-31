@@ -13,10 +13,10 @@
       <h2 class="editMovie"><%= obj.movie %></h2>
       <a lass="editRecipe" href='<%= obj.recipe %>'><%= obj.recipe %></a>
       <br><br>
-    <form class="editForm" action="/saved/<%= obj._id %>?_method=PUT" method="POST">
-      <input type="text" name="obj[Name]" value="<%= obj.Name %>"><br>
-      <input type="submit" value="Update">
-    </form>
+      <form class="editForm" action="/saved/<%= obj._id %>?_method=PUT" method="POST">
+        <input type="text" name="obj[Name]" value="<%= obj.Name %>"><br>
+        <input type="submit" value="Update">
+      </form>
     </div>
   </body>
 </html>
