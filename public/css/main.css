@@ -106,6 +106,71 @@
 }
 
 
+/*SAVED.EJS*/
+
+
+.savedBody{
+  height: auto;
+  width: 100%;
+  background-color: black;
+  text-align: center;
+}
+
+.savedWelcome{
+  font-family: 'Yellowtail', cursive;
+  color: #f5f5f5;
+  font-size: 5em;
+}
+
+.savedSearch{
+  font-family: 'Trirong', serif;
+  color: #ffc107;
+  font-size: 3em;
+  text-decoration: none;
+}
+
+.savedSearch:hover{
+  color: #f5f5f5;
+}
+
+.savedLogout{
+
+}
+
+.savedContainer{
+
+}
+
+.savedItem{
+  font-family: 'Trirong', serif;
+  color: #f5f5f5;
+}
+
+.savedData{
+  font-family: 'Trirong', serif;
+  color: #f5f5f5;
+}
+
+.savedRecipe{
+  font-family: 'Trirong', serif;
+  color: #f5f5f5;
+  text-decoration: none;
+}
+
+.savedRecipe:hover{
+  color: #81c784;
+}
+
+.savedEdit{
+  font-family: 'Trirong', serif;
+  color: #f5f5f5;
+  text-decoration: none;
+}
+
+
+/*EDIT.EJS*/
+
+
 /*GENERATOR.EJS*/
 
 
