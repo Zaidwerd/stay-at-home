@@ -21,7 +21,7 @@ const usersRoute      = require('./routes/users');
 // const editRoute       = require('./routes/edit');
 
 const app             = express();
-const port            = process.argv[2] || process.env.PORT || 3000;
+const port            = process.env.PORT || 3000;
 const SECRET          = 'tacos3000';
 
 app.set('view engine', 'ejs');
