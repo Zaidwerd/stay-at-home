@@ -2,15 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Edit obj</title>
+    <title>Edit</title>
+    <link rel='stylesheet' href='/css/normalize.css'>
+    <link href="https://fonts.googleapis.com/css?family=Trirong|Yellowtail" rel="stylesheet">
+    <link rel='stylesheet' href='/css/main.css'>
   </head>
-  <body>
-      <h2><%= obj.movie %></h2>
-      <h3><a href='<%= obj.recipe %>'><%= obj.recipe %></a></h3>
-      <br>
-    <form class="edit" action="/saved/<%= obj._id %>?_method=PUT" method="POST">
-      <input type="text" name="obj[Name]" value="<%= obj.Name %>">
+  <body class="editBody">
+    <h1 class="editTitle">Edit</h1>
+    <div class="editContainer">
+      <h2 class="editMovie"><%= obj.movie %></h2>
+      <a lass="editRecipe" href='<%= obj.recipe %>'><%= obj.recipe %></a>
+      <br><br>
+    <form class="editForm" action="/saved/<%= obj._id %>?_method=PUT" method="POST">
+      <input type="text" name="obj[Name]" value="<%= obj.Name %>"><br>
       <input type="submit" value="Update">
     </form>
+    </div>
   </body>
 </html>
