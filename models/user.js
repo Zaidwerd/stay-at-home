@@ -4,6 +4,9 @@ const bcrypt = require('bcryptjs');
 
 const SALTROUNDS = 10;
 
+// Credit: Bobby King, Rafa Pacas and the rest of the WDI Instructors for User Auth Template
+
+// Add User
 function createUser(req, res, next) {
   const userObject = {
     username: req.body.user.username,
@@ -26,6 +29,7 @@ function createUser(req, res, next) {
   });
 }
 
+// Grab User ID
 function getUserById(id) {
   return getDB().then((db) => {
     const promise = new Promise((resolve, reject) => {
@@ -40,6 +44,7 @@ function getUserById(id) {
   });
 }
 
+// Grab Username
 function getUserByUsername(username) {
   return getDB().then((db) => {
     const promise = new Promise((resolve, reject) => {
