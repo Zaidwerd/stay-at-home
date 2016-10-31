@@ -20,6 +20,9 @@
   "bugs": {
     "url": "https://github.com/Zaidwerd/stay-at-home/issues"
   },
+  "engines": {
+  "node": "6.8.1"
+  },
   "homepage": "https://github.com/Zaidwerd/stay-at-home#readme",
   "dependencies": {
     "bcryptjs": "^2.3.0",
