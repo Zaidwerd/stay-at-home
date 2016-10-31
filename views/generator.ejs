@@ -9,60 +9,60 @@
   <link rel='stylesheet' href='/css/main.css'>
 </head>
 <body class="gBody">
+  <header id="header" class="">
+    <a class="gNav" href="/">Stay-at-Home</a><br>
+    <a class="gNavSaved" href="/saved">Saved</a>
+  </header>
 
-<a class="gNav" href="/"><h1 class="gLogo">Stay-at-Home</h1></a><br>
-<a class="gNavSaved" href="/saved">Saved</a>
+  <h1 class="gTitle">Search Movie and Recipe</h1>
 
-<h1 class="gTitle">Search Movie and Recipe</h1>
-
-<form class="gSearch" action="/generator" method="get" accept-charset="utf-8">
- <input type="text" name="show_cast" placeholder="Enter a actor">
- <input type="text" name="ingredients" placeholder="Enter ingredients">
+  <form class="gSearch" action="/generator" method="get" accept-charset="utf-8">
+    <input type="text" name="show_cast" placeholder="Enter a actor">
+    <input type="text" name="ingredients" placeholder="Enter ingredients">
     <input type="submit" value="Search">
-</form>
+  </form>
 
-<form action="/saved" method="post">
+  <form action="/saved" method="post">
 
-<div class="gContainer">
+  <div class="gContainer">
 
-  <fieldset class="gMovieContainer">
-  <% for(let i = 0; i < 3 && i < movies.length; i++) { %>
+    <fieldset class="gMovieContainer">
+    <% for(let i = 0; i < 3 && i < movies.length; i++) { %>
 
-    <div class="gMovieItem">
-      <img src="<%= movies[i].poster %>" onerror="this.src='images/noposter.jpg'">
-      <div class="gMovieData">
-        <h4><%= movies[i].show_title %></h4>
-        <div><%= movies[i].category %></div>
-        <div><%= movies[i].summary %></div>
-      </div>
-       <!--  <input type="hidden" name="saved[MoviePoster]" value="<%= movies[i].poster %>">
+      <div class="gMovieItem">
+        <img src="<%= movies[i].poster %>" onerror="this.src='images/noposter.jpg'">
+        <div class="gMovieData">
+          <h4><%= movies[i].show_title %></h4>
+          <div><%= movies[i].category %></div>
+          <div><%= movies[i].summary %></div>
+        </div>
+        <!--  <input type="hidden" name="saved[MoviePoster]" value="<%= movies[i].poster %>">
         <input type="hidden" name="saved[MovieTitle]" value="<%= movies[i].show_title %>"> -->
         <br>
         <input type="radio" name="<%= movies[i].show_title %>" value="<%= i %>-movie">Add
-    </div>
+      </div>
 
-  <% }; %>
-  </fieldset>
+    <% }; %>
+    </fieldset>
 
-<br><br>
-<fieldset class="gRecipeContainer">
-
-  <% for(let i = 0; i< 3 && i < recipe.length; i++) { %>
-    <div class="gRecipeItem">
-      <h3><a href="<%= recipe[i].href %>"><%= recipe[i].title %></a></h3>
-      <p><%= recipe[i].ingredients %></p>
-     <!--  <input type="hidden" name="saved[RecipeTitle]" value="<%= recipe[i].title %>">
-      <input type="hidden" name="saved[RecipeLink]" value="<%= recipe[i].href %>"> -->
-      <br>
-      <input type="radio" name="<%= recipe[i].href %>" value="<%= i %>-recipe">Add
+    <br><br>
+    <fieldset class="gRecipeContainer">
+    <% for(let i = 0; i< 3 && i < recipe.length; i++) { %>
+      <div class="gRecipeItem">
+        <h3><a href="<%= recipe[i].href %>"><%= recipe[i].title %></a></h3>
+        <p><%= recipe[i].ingredients %></p>
+        <!--  <input type="hidden" name="saved[RecipeTitle]" value="<%= recipe[i].title %>">
+        <input type="hidden" name="saved[RecipeLink]" value="<%= recipe[i].href %>"> -->
+        <br>
+        <input type="radio" name="<%= recipe[i].href %>" value="<%= i %>-recipe">Add
+      </div>
+    <% }; %>
+    </fieldset>
   </div>
-  <% }; %>
-</fieldset>
-</div>
 
-  <input type="text" name="saved[Name]" placeholder="enter combo nickname"><br>
-  <input type="submit" value="Save">
-</form>
+    <input type="text" name="saved[Name]" placeholder="Enter Nickname"><br>
+    <input type="submit" value="Save">
+  </form>
 
 </body>
 </html>
