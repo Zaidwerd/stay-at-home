@@ -9,7 +9,7 @@ const { authenticate }   = require('../lib/auth');
  * It uses the createUser middleware from the user model
  */
 router.post('/', createUser, (req, res) => {
-  res.redirect('/');
+  res.redirect('./login');
 });
 
 /**
