@@ -52,7 +52,7 @@
     <% for(let i = 0; i< 3 && i < recipe.length; i++) { %>
 
       <div class="gRecipeItem">
-        <h3><a href="<%= recipe[i].href %>"><%= recipe[i].title %></a></h3>
+        <h3><a class= "gRecipeLink" href="<%= recipe[i].href %>"><%= recipe[i].title %></a></h3>
         <p><%= recipe[i].ingredients %></p>
         <!-- <input type="hidden" name="saved[RecipeTitle]" value="<%= recipe[i].title %>">
         <input type="hidden" name="saved[RecipeLink]" value="<%= recipe[i].href %>"> -->

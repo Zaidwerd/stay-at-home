@@ -12,6 +12,16 @@
   font-family: 'Yellowtail', cursive;
   color: #ffc107;
   font-size: 15vw;
+  animation-name: flash;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes flash{
+    0%   {color: #ffc107;}
+    25%  {color: #FFFDE7;}
+    50%  {color: #ffc107;}
+    100% {color: #FFFDE7;}
 }
 
 .indexLink{
@@ -313,6 +323,10 @@ img{
   border-radius: 50%;
   display: table-cell;
   vertical-align:middle;
+}
+
+.gRecipeLink{
+  text-decoration: none:
 }
 
 
