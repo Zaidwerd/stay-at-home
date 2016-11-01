@@ -48,8 +48,8 @@ The saved function mixed with the radio buttons in my for loop would not allow m
 * Add CRUD to user database
 
 ##Thank You
-GA Instructors
-Jimmie Los Angeles for recipe idea
+* GA Instructors
+* Jimmie Los Angeles for recipe idea
 
 ##Credit
 * Saved Function in Model assisted by: Bobby King
