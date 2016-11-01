@@ -49,7 +49,7 @@ The saved function mixed with the radio buttons in my for loop would not allow m
 
 ##Thank You
 * GA Instructors
-* Jimmie Los Angeles for recipe idea
+* Jimmy De Los Angeles for recipe idea
 
 ##Credit
 * Saved Function in Model assisted by: Bobby King
