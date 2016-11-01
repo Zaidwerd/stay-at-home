@@ -19,27 +19,30 @@ Create a full-stack Express.js application using MVC model that pulls informatio
 * Heroku
 * User Authorization
 
-##Dependecies:
-![logo] (https://github.com/Zaidwerd/stay-at-home/blob/master/public/images/Screenshots/Dependencies.png)
+##Dependencies:
+![dependencies] (https://github.com/Zaidwerd/stay-at-home/blob/master/public/images/Screenshots/Dependencies.png)
 
 ##API's:
 * Netfix Roulette: "http://netflixroulette.net/api/"
 * Recipe Puppy: "http://www.recipepuppy.com/about/api/"
 
 ##Logic
+Search framework
+![framework] (https://github.com/Zaidwerd/stay-at-home/blob/master/public/images/Screenshots/SearchFramework.png)
+
 Using a search form, I connected to two API's to grab three movies by actor:
-![logo] (https://github.com/Zaidwerd/stay-at-home/blob/master/public/images/Screenshots/MovieSearch.png)
+![movieSearch] (https://github.com/Zaidwerd/stay-at-home/blob/master/public/images/Screenshots/MovieSearch.png)
 and three recipes by ingredients:
-![logo] (https://github.com/Zaidwerd/stay-at-home/blob/master/public/images/Screenshots/RecipeSearch.png)
+![recipeSearch] (https://github.com/Zaidwerd/stay-at-home/blob/master/public/images/Screenshots/RecipeSearch.png)
 after one movie and one recipe has been selected using the radio buttons, that combo can be saved to the users main page and can be nicknamed to a silly name or match the appropriate event. 
-![logo] (https://github.com/Zaidwerd/stay-at-home/blob/master/public/images/Screenshots/Saved.png)
+![savedScreenshot] (https://github.com/Zaidwerd/stay-at-home/blob/master/public/images/Screenshots/Saved.png)
 MVC layout helped organize my full stack application. I use 2 models for my Stay-at-Home mongo database. One for my user's collection and the other for my saved collection. the saved model holds 5 functions used to task a majority of my CRUD functionality in my app. Mainly to add saved selections, get saved collection, delete a certain object, grab a certain object to be edited and save edited object all from the saved collection. The searches from my two API's are held in my services. 
 
 ##Unsolved Problems
 * Grabbing data from two seperate API's using a single radio input form.
-![logo] (https://github.com/Zaidwerd/stay-at-home/blob/master/public/images/Screenshots/SaveFunction.png)
+![savedFunction] (https://github.com/Zaidwerd/stay-at-home/blob/master/public/images/Screenshots/SaveFunction.png)
 The saved function mixed with the radio buttons in my for loop would not allow me to grab mutiple data lines. Instead would grab all three values in every key I try to pull and save it as arrays in an object. 
-![logo] (https://github.com/Zaidwerd/stay-at-home/blob/master/public/images/Screenshots/RadioButton.png)
+![ejsRadioLoop] (https://github.com/Zaidwerd/stay-at-home/blob/master/public/images/Screenshots/RadioButton.png)
 
 ##Future Improvements
 * Gain access to more reliable API's such as Netflix OSS and Spoonacular's Food-API
